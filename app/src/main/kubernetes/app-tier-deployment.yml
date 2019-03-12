@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: app-tier
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: app-tier
+      labels:
+        app: kubernetes-sample
+        tier: app
+    spec:
+      containers:
+        - name: server
+          image: "klearchos/kub-sample-app:latest"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8079
+              protocol: TCP
+          env:
+            - name: DATA_TIER_URL
+              value: "http://$(DATA_TIER_SERVICE_HOST):$(DATA_TIER_SERVICE_PORT)"
+          resources:
+            requests:
+              cpu: "100m"

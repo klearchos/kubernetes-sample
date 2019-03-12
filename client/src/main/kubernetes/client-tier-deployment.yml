@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: client-tier
+  labels:
+    app: kubernetes-sample
+    tier: client
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: client-tier
+      labels:
+        app: kubernetes-sample
+        tier: client
+    spec:
+      containers:
+        - name: client
+          image: "klearchos/kub-sample-client:latest"
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: "APP_TIER_URL"
+              value: "http://$(APP_TIER_SERVICE_HOST):$(APP_TIER_SERVICE_PORT_SERVER)"

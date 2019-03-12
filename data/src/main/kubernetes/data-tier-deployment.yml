@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: data-tier
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: data-tier
+      labels:
+        app: kubernetes-sample
+        tier: data
+    spec:
+      containers:
+        - name: data
+          image: "klearchos/kub-sample-data:latest"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              protocol: TCP

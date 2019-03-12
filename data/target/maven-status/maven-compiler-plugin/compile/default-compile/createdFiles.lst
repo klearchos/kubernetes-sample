@@ -1,0 +1,4 @@
+example\kubernetes\data\DataApplication.class
+example\kubernetes\data\web\rest\DataResource.class
+example\kubernetes\data\domain\Message.class
+example\kubernetes\data\Statistics.class

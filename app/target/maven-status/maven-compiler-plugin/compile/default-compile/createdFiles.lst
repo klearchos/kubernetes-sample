@@ -1,0 +1,5 @@
+example\kubernetes\app\config\ApplicationProperties.class
+example\kubernetes\app\AppApplication.class
+example\kubernetes\app\web\rest\DataResource.class
+META-INF\spring-configuration-metadata.json
+example\kubernetes\app\config\ApplicationProperties$Endpoints.class
